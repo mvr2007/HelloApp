@@ -1,17 +1,17 @@
 public class HelloApp {
     public static void main(String[] args) {
         String greetingTarget;
-        if (args.length > 0) {
-            StringBuilder names = new StringBuilder();
-            for (int i = 0; i < args.length; i++) {
-                names.append(args[i]);
-                if (i < args.length - 1) {
-                    names.append(", ");
-                }
-            }
-            greetingTarget = names.toString();
-        } else {
+        if (args.length == 0) {
             greetingTarget = "World";
+        } else {
+            StringBuilder namesList = new StringBuilder();
+            for (String name : args) {
+                if (namesList.length() > 0) {
+                    namesList.append(", ");
+                }
+                namesList.append(name);
+            }
+            greetingTarget = namesList.toString();
         }
         System.out.println("Hello, " + greetingTarget + "!");
     }
