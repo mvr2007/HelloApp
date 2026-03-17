@@ -4,14 +4,15 @@ public class HelloApp {
         if (args.length == 0) {
             greetingTarget = "World";
         } else {
-            StringBuilder namesList = new StringBuilder();
+            StringBuilder nameBuilder = new StringBuilder();
             for (String name : args) {
-                if (namesList.length() > 0) {
-                    namesList.append(", ");
-                }
-                namesList.append(name);
+                nameBuilder.append(name).append(", ");
             }
-            greetingTarget = namesList.toString();
+            if (nameBuilder.length() > 0) {
+                greetingTarget = nameBuilder.substring(0, nameBuilder.length() - 2);
+            } else {
+                greetingTarget = "World";
+            }
         }
         System.out.println("Hello, " + greetingTarget + "!");
     }
